@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer');
-const GetImageURL = require('./src/GetImageURL');
+const GetImage = require('./src/GetImage');
 
 const main = async() => {
     try {
-        const result = await GetImageURL();
+        const result = await GetImage();
         console.log(result);
     } catch (err) {
         console.log(err);

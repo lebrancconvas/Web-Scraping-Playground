@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
+const ImageDownloader = require('./ImageDownloader');
 
-const GetImageURL = async() => {
+const GetImage = async() => {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
@@ -10,10 +11,14 @@ const GetImageURL = async() => {
     await page.goto(link);
     const imageURL = await page.$eval(imageSelector, img => img.src);
 
+    ImageDownloader(imageURL, filename => {
+        console.log("Downloading Success.");
+    })
+
     await page.close();
     await browser.close();
 
-    return `The Image URL: ${imageURL}`;
+    // return `The Image URL: ${imageURL}`;
 }
 
-module.exports = GetImageURL;
+module.exports = GetImage;
