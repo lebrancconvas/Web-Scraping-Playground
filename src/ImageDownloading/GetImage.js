@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const ImageData = require('./ImageData');
+const ImageData = require('../../data/input/js/ImageData');
 const ImageDownloader = require('./ImageDownloader');
 
 const GetImage = async() => {
