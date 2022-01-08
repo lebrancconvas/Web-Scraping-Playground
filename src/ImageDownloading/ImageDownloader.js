@@ -1,11 +1,15 @@
 const fs = require('fs');
 const https = require('https');
+const http = require('http');
 const path = require('path');
+const URL = require('url').URL;
 
 const ImageDownloader = (url, callback) => {
+    const userURL = new URL(url);
+    const requestCaller = userURL.protocol === "http:" ? http : https;
     const filename = path.basename(url);
 
-    const req = https.get(url, res => {
+    const req = requestCaller.get(url, res => {
         const fileStream = fs.createWriteStream(path.join(__dirname, '..', '..', 'data', 'output', 'img', filename));
         res.pipe(fileStream);
 
