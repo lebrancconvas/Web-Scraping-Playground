@@ -6,7 +6,7 @@ const ImageDownloader = (url, callback) => {
     const filename = path.basename(url);
 
     const req = https.get(url, res => {
-        const fileStream = fs.createWriteStream(path.join(__dirname, '..', 'data', 'output', 'img', filename));
+        const fileStream = fs.createWriteStream(path.join(__dirname, '..', '..', 'data', 'output', 'img', filename));
         res.pipe(fileStream);
 
         fileStream.on("error", err => {
