@@ -7,8 +7,8 @@ const GetImage = async() => {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
-    const link = ImageData.keyakilogoimage.url;
-    const imageSelector = ImageData.keyakilogoimage.imageselector;
+    const link = ImageData.songhyekyoimage.url;
+    const imageSelector = ImageData.songhyekyoimage.imageselector;
 
     await page.goto(link);
     const imageURL = await page.$eval(imageSelector, img => img.src);
