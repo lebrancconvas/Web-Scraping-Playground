@@ -1,0 +1,14 @@
+{
+  "name": "Scraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lebrancconvas/Web-Scraping-Playground.git",
+  "author": "lebrancconvas <lebrancconvas@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "puppeteer": "^13.0.1",
+    "puppeteer-core": "^13.0.1"
+  }
+}
