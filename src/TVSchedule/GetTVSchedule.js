@@ -6,7 +6,7 @@ const GetTVSchedule = async() => {
 
     let tvprogram = [];
 
-    const link = `https://www.workpointtv.com/schedule?day=sat`;
+    const link = `https://www.workpointtv.com/schedule?day=mon`;
 
     for (let i = 1; i <= 22; i++) {
         const selector = `.cleverse-all-color-black:nth-child(${i}) > a > .row > .col-md-9 > .de-tab`;
