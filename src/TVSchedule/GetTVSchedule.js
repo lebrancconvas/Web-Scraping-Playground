@@ -6,19 +6,25 @@ const GetTVSchedule = async() => {
 
     let tvprogram = [];
 
-    const link = `https://www.workpointtv.com/schedule?day=mon`;
+    const link = `https://www.ch7.com/schedule.html`;
+    const selector = `#tab0`;
 
-    for (let i = 1; i <= 22; i++) {
-        const selector = `.cleverse-all-color-black:nth-child(${i}) > a > .row > .col-md-9 > .de-tab`;
+    await page.goto(link);
+    const element = await page.waitForSelector(selector);
+    const value = await element.evaluate(el => el.textContent);
+    const protoarray = value.replace(/\s+/g, ' ').split('น. ');
 
-        await page.goto(link);
-        const element = await page.waitForSelector(selector);
-        const value = await element.evaluate(el => el.textContent);
-        tvprogram.push(value);
 
-    }
+    // for (let i = 1; i <= 22; i++) {
 
-    return tvprogram;
+    //     await page.goto(link);
+    //     const element = await page.waitForSelector(selector);
+    //     const value = await element.evaluate(el => el.textContent);
+
+    //     tvprogram.push(value);
+    // }
+
+    return protoarray;
 }
 
 
